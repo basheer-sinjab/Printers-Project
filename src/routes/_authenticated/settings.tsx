@@ -16,9 +16,9 @@ type LookupTable = "branches" | "departments" | "responsible_persons" | "parts";
 export const Route = createFileRoute("/_authenticated/settings")({
   head: () => ({
     meta: [
-      { title: "الإعدادات — نظام إدارة الطابعات" },
+      { title: "الإعدادات — PrintersFloss" },
       { name: "description", content: "إدارة الفروع والأقسام والأشخاص المسؤولين وقطع الغيار وتنبيهات النظام." },
-      { property: "og:title", content: "الإعدادات — نظام إدارة الطابعات" },
+      { property: "og:title", content: "الإعدادات — PrintersFloss" },
       { property: "og:description", content: "ضبط القوائم الأساسية وتنبيهات المخزون والضمان." },
     ],
   }),

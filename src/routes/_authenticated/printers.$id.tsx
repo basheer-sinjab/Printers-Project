@@ -18,9 +18,9 @@ import { useNavigate } from "@tanstack/react-router";
 export const Route = createFileRoute("/_authenticated/printers/$id")({
   head: () => ({
     meta: [
-      { title: "تفاصيل الطابعة — نظام إدارة الطابعات" },
+      { title: "تفاصيل الطابعة — PrintersFloss" },
       { name: "description", content: "بيانات الطابعة وسجل الأحبار والصيانة والنقل." },
-      { property: "og:title", content: "تفاصيل الطابعة — نظام إدارة الطابعات" },
+      { property: "og:title", content: "تفاصيل الطابعة — PrintersFloss" },
       { property: "og:description", content: "بيانات الطابعة وسجل الأحبار والصيانة والنقل." },
     ],
   }),

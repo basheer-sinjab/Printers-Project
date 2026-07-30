@@ -7,5 +7,6 @@ if not errorlevel 1 (
 	exit /b 0
 )
 
-npm run dev -- --host 127.0.0.1 --port 8080 --open
+wscript.exe "%~dp0Start-Printers-Server.vbs"
+start "" "http://127.0.0.1:8080/"
 popd

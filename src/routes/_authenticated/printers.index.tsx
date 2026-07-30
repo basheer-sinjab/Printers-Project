@@ -22,9 +22,9 @@ const ALL = "__all__";
 export const Route = createFileRoute("/_authenticated/printers/")({
   head: () => ({
     meta: [
-      { title: "الطابعات — نظام إدارة الطابعات" },
+      { title: "الطابعات — PrintersFloss" },
       { name: "description", content: "استعرض وابحث وأدر جميع طابعات الشركة مع حالتها وأقسامها." },
-      { property: "og:title", content: "الطابعات — نظام إدارة الطابعات" },
+      { property: "og:title", content: "الطابعات — PrintersFloss" },
       { property: "og:description", content: "قائمة الطابعات مع البحث والتصفية." },
     ],
   }),

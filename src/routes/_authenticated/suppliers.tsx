@@ -20,9 +20,9 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/_authenticated/suppliers")({
   head: () => ({
     meta: [
-      { title: "الموردون — نظام إدارة الطابعات" },
+      { title: "الموردون — PrintersFloss" },
       { name: "description", content: "سجل موردي الأحبار وقطع الغيار مع بيانات التواصل." },
-      { property: "og:title", content: "الموردون — نظام إدارة الطابعات" },
+      { property: "og:title", content: "الموردون — PrintersFloss" },
       { property: "og:description", content: "إدارة بيانات الموردين وربطهم بالأحبار." },
     ],
   }),

@@ -76,10 +76,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "نظام إدارة الطابعات" },
+      { title: "PrintersFloss" },
       {
         name: "description",
-        content: "نظام متكامل لإدارة الطابعات والأحبار والصيانة داخل الشركة.",
+        content: "PrintersFloss لإدارة الطابعات والأحبار والصيانة داخل الشركة.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

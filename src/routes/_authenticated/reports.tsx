@@ -39,9 +39,9 @@ const REPORTS: { value: ReportKind; label: string }[] = [
 export const Route = createFileRoute("/_authenticated/reports")({
   head: () => ({
     meta: [
-      { title: "التقارير — نظام إدارة الطابعات" },
+      { title: "التقارير — PrintersFloss" },
       { name: "description", content: "تقارير الطابعات والأحبار والصيانة والاستهلاك مع إمكانية الطباعة و PDF." },
-      { property: "og:title", content: "التقارير — نظام إدارة الطابعات" },
+      { property: "og:title", content: "التقارير — PrintersFloss" },
       { property: "og:description", content: "استخرج تقارير جاهزة للطباعة أو الحفظ كملف PDF." },
     ],
   }),

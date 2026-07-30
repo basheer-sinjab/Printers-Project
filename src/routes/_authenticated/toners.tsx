@@ -30,9 +30,9 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/_authenticated/toners")({
   head: () => ({
     meta: [
-      { title: "مخزون الأحبار — نظام إدارة الطابعات" },
+      { title: "مخزون الأحبار — PrintersFloss" },
       { name: "description", content: "إدارة أنواع الأحبار والكميات المتوفرة وحد التنبيه وإدخالات المخزون." },
-      { property: "og:title", content: "مخزون الأحبار — نظام إدارة الطابعات" },
+      { property: "og:title", content: "مخزون الأحبار — PrintersFloss" },
       { property: "og:description", content: "تتبع كميات الأحبار وتنبيهات النقص وسجل الإدخالات." },
     ],
   }),

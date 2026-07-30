@@ -1,0 +1,68 @@
+
+> dev
+> vite dev --host 127.0.0.1 --port 8080
+
+[33mThe plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the [1mresolve.tsconfigPaths[22m option. You can remove the plugin and set [1mresolve.tsconfigPaths: true[22m in your Vite config instead.[39m
+
+  [32m[1mVITE[22m v8.2.0[39m  [2mready in [0m[1m6743[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m8080[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m٧:٥٧:٥٦ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m connected.
+[2m٩:١٥:١٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/__root.tsx[22m
+[2m٩:١٥:١٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/styles.css[22m
+[2m٩:١٥:١٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+[2m٩:١٥:١٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/__root.tsx[22m
+[2m٩:١٥:١٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/__root.tsx[22m
+[2m٩:١٥:١٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/route.tsx, /src/routes/_authenticated/route.tsx?tsr-split=component[22m
+[2m٩:١٥:١٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/route.tsx[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/index.tsx, /src/routes/_authenticated/index.tsx?tsr-split=component[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/index.tsx[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/printers.$id.tsx[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/printers.$id.tsx[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/printers.index.tsx, /src/routes/_authenticated/printers.index.tsx?tsr-split=component[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/printers.index.tsx[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/reports.tsx, /src/routes/_authenticated/reports.tsx?tsr-split=component[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/reports.tsx[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/settings.tsx, /src/routes/_authenticated/settings.tsx?tsr-split=component[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/settings.tsx[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/toners.tsx, /src/routes/_authenticated/toners.tsx?tsr-split=component[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/toners.tsx[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/suppliers.tsx, /src/routes/_authenticated/suppliers.tsx?tsr-split=component[22m
+[2m٩:١٦:٣٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/suppliers.tsx[22m
+[2m٩:١٦:٥١ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct[22m
+[2m٩:١٦:٥١ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/lib/error-page.ts[22m
+[2m٩:١٦:٥١ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+[2m٩:٢٠:١٩ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/__root.tsx[22m
+[2m٩:٢٠:١٩ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/styles.css[22m
+[2m٩:٢٠:١٩ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+[2m٩:٢٣:٢١ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/route.tsx, /src/routes/_authenticated/route.tsx?tsr-split=component[22m
+[2m٩:٢٣:٢١ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/route.tsx[22m
+[2m٩:٢٣:٢١ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+[2m٩:٢٤:٥٨ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/route.tsx, /src/routes/_authenticated/route.tsx?tsr-split=component[22m
+[2m٩:٢٤:٥٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/route.tsx[22m
+[2m٩:٢٤:٥٨ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+[2m٩:٢٦:١٣ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/__root.tsx[22m
+[2m٩:٢٦:١٣ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/styles.css[22m
+[2m٩:٢٦:١٣ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/lib/error-page.ts[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/printers.$id.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/printers.$id.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/settings.tsx, /src/routes/_authenticated/settings.tsx?tsr-split=component[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/settings.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/index.tsx, /src/routes/_authenticated/index.tsx?tsr-split=component[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/index.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/reports.tsx, /src/routes/_authenticated/reports.tsx?tsr-split=component[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/reports.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/suppliers.tsx, /src/routes/_authenticated/suppliers.tsx?tsr-split=component[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/suppliers.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/__root.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/__root.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/printers.index.tsx, /src/routes/_authenticated/printers.index.tsx?tsr-split=component[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/printers.index.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/toners.tsx, /src/routes/_authenticated/toners.tsx?tsr-split=component[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/toners.tsx[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css?direct, /src/routes/_authenticated/route.tsx, /src/routes/_authenticated/route.tsx?tsr-split=component[22m
+[2m٩:٢٦:١٤ م[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routes/_authenticated/route.tsx[22m

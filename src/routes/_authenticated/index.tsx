@@ -27,12 +27,12 @@ import {
 export const Route = createFileRoute("/_authenticated/")({
   head: () => ({
     meta: [
-      { title: "لوحة التحكم — نظام إدارة الطابعات" },
+      { title: "لوحة التحكم — PrintersFloss" },
       {
         name: "description",
         content: "نظرة عامة على حالة الطابعات ومخزون الأحبار وآخر عمليات الصيانة والتنبيهات.",
       },
-      { property: "og:title", content: "لوحة التحكم — نظام إدارة الطابعات" },
+      { property: "og:title", content: "لوحة التحكم — PrintersFloss" },
       { property: "og:description", content: "إحصائيات الطابعات والأحبار والتنبيهات الداخلية." },
     ],
   }),
