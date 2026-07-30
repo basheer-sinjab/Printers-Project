@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PrinterImage } from "@/components/PrinterImage";
 import { PrinterFormDialog, useLookups } from "@/components/PrinterFormDialog";
-import { QrCodeBox } from "@/components/QrCodeBox";
 import { TonerHistoryTab } from "@/components/printer/TonerHistoryTab";
 import { MaintenanceTab } from "@/components/printer/MaintenanceTab";
 import { TransfersTab } from "@/components/printer/TransfersTab";
@@ -20,7 +19,7 @@ export const Route = createFileRoute("/_authenticated/printers/$id")({
   head: () => ({
     meta: [
       { title: "تفاصيل الطابعة — نظام إدارة الطابعات" },
-      { name: "description", content: "بيانات الطابعة وسجل الأحبار والصيانة والنقل ورمز QR." },
+      { name: "description", content: "بيانات الطابعة وسجل الأحبار والصيانة والنقل." },
       { property: "og:title", content: "تفاصيل الطابعة — نظام إدارة الطابعات" },
       { property: "og:description", content: "بيانات الطابعة وسجل الأحبار والصيانة والنقل." },
     ],
@@ -144,7 +143,6 @@ function PrinterDetails() {
           <TabsTrigger value="toner">سجل الأحبار</TabsTrigger>
           <TabsTrigger value="maintenance">سجل الصيانة</TabsTrigger>
           <TabsTrigger value="transfers">سجل النقل</TabsTrigger>
-          <TabsTrigger value="qr">رمز QR</TabsTrigger>
         </TabsList>
 
         <TabsContent value="info" className="mt-4">
@@ -175,15 +173,6 @@ function PrinterDetails() {
           <TransfersTab printer={printer} />
         </TabsContent>
 
-        <TabsContent value="qr" className="mt-4">
-          <div className="surface-panel flex flex-col items-center gap-4 p-8">
-            <h2 className="text-lg font-semibold">{printer.name}</h2>
-            <QrCodeBox value={printer.asset_id} size={220} />
-            <p className="text-sm text-muted-foreground">
-              امسح الرمز للوصول السريع إلى بيانات هذه الطابعة.
-            </p>
-          </div>
-        </TabsContent>
       </Tabs>
 
       <PrinterFormDialog open={editOpen} onOpenChange={setEditOpen} printer={printer} />

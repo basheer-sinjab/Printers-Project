@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -14,10 +14,8 @@ import {
 } from "@/components/ui/select";
 import { PrinterImage } from "@/components/PrinterImage";
 import { PrinterFormDialog, useLookups } from "@/components/PrinterFormDialog";
-import { QrScanDialog } from "@/components/QrScanDialog";
 import { PRINTER_STATUS, STATUS_CLASS, formatDate, type PrinterStatus } from "@/lib/pms";
-import { Plus, QrCode, Search, Star } from "lucide-react";
-import { toast } from "sonner";
+import { Plus, Search, Star } from "lucide-react";
 
 const ALL = "__all__";
 
@@ -27,14 +25,13 @@ export const Route = createFileRoute("/_authenticated/printers/")({
       { title: "الطابعات — نظام إدارة الطابعات" },
       { name: "description", content: "استعرض وابحث وأدر جميع طابعات الشركة مع حالتها وأقسامها." },
       { property: "og:title", content: "الطابعات — نظام إدارة الطابعات" },
-      { property: "og:description", content: "قائمة الطابعات مع البحث والتصفية ومسح رمز QR." },
+      { property: "og:description", content: "قائمة الطابعات مع البحث والتصفية." },
     ],
   }),
   component: PrintersPage,
 });
 
 function PrintersPage() {
-  const navigate = useNavigate();
   const { data: lookups } = useLookups();
   const [q, setQ] = useState("");
   const [branch, setBranch] = useState(ALL);
@@ -42,7 +39,6 @@ function PrintersPage() {
   const [status, setStatus] = useState(ALL);
   const [manufacturer, setManufacturer] = useState(ALL);
   const [formOpen, setFormOpen] = useState(false);
-  const [scanOpen, setScanOpen] = useState(false);
 
   const { data, isLoading } = useQuery({
     queryKey: ["printers-list"],
@@ -81,15 +77,6 @@ function PrintersPage() {
     );
   });
 
-  function handleScan(text: string) {
-    setScanOpen(false);
-    const match = (data?.printers ?? []).find(
-      (p) => p.asset_id.toLowerCase() === text.toLowerCase(),
-    );
-    if (match) navigate({ to: "/printers/$id", params: { id: match.id } });
-    else toast.error(`لا توجد طابعة بالرقم ${text}`);
-  }
-
   const nameOf = (list: { id: string; name: string }[] | undefined, id: string | null) =>
     list?.find((x) => x.id === id)?.name ?? "—";
 
@@ -100,16 +87,10 @@ function PrintersPage() {
           <h1 className="text-2xl font-bold">الطابعات</h1>
           <p className="text-sm text-muted-foreground">{filtered.length} طابعة معروضة</p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" className="gap-2" onClick={() => setScanOpen(true)}>
-            <QrCode className="size-4" />
-            مسح QR
-          </Button>
-          <Button className="gap-2" onClick={() => setFormOpen(true)}>
-            <Plus className="size-4" />
-            إضافة طابعة
-          </Button>
-        </div>
+        <Button className="gap-2" onClick={() => setFormOpen(true)}>
+          <Plus className="size-4" />
+          إضافة طابعة
+        </Button>
       </header>
 
       <div className="surface-panel grid gap-3 p-4 md:grid-cols-5">
@@ -201,7 +182,6 @@ function PrintersPage() {
       )}
 
       <PrinterFormDialog open={formOpen} onOpenChange={setFormOpen} />
-      <QrScanDialog open={scanOpen} onOpenChange={setScanOpen} onResult={handleScan} />
     </div>
   );
 }

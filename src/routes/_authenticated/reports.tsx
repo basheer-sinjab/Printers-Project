@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import { DateInput } from "@/components/DateInput";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -13,7 +14,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { QrCodeBox } from "@/components/QrCodeBox";
 import { useLookups } from "@/components/PrinterFormDialog";
 import {
   PRINTER_STATUS,
@@ -27,14 +27,13 @@ import {
 import { Printer as PrinterIcon } from "lucide-react";
 
 const ALL = "__all__";
-type ReportKind = "printers" | "toners" | "maintenance" | "toner-usage" | "qr-sheet";
+type ReportKind = "printers" | "toners" | "maintenance" | "toner-usage";
 
 const REPORTS: { value: ReportKind; label: string }[] = [
   { value: "printers", label: "تقرير الطابعات" },
   { value: "toners", label: "تقرير مخزون الأحبار" },
   { value: "maintenance", label: "تقرير الصيانة" },
   { value: "toner-usage", label: "تقرير استهلاك الأحبار" },
-  { value: "qr-sheet", label: "ورقة رموز QR" },
 ];
 
 export const Route = createFileRoute("/_authenticated/reports")({
@@ -164,11 +163,11 @@ function ReportsPage() {
         </div>
         <div className="space-y-2">
           <Label>من تاريخ</Label>
-          <Input type="date" value={from} onChange={(e) => setFrom(e.target.value)} />
+          <DateInput value={from} onChange={setFrom} />
         </div>
         <div className="space-y-2">
           <Label>إلى تاريخ</Label>
-          <Input type="date" value={to} onChange={(e) => setTo(e.target.value)} />
+          <DateInput value={to} onChange={setTo} />
         </div>
       </div>
 
@@ -230,16 +229,6 @@ function ReportsPage() {
           />
         )}
 
-        {kind === "qr-sheet" && (
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-            {printers.map((p) => (
-              <div key={p.id} className="rounded-lg border p-3 text-center">
-                <QrCodeBox value={p.asset_id} size={130} />
-                <p className="mt-2 text-sm font-medium">{p.name}</p>
-              </div>
-            ))}
-          </div>
-        )}
       </section>
     </div>
   );

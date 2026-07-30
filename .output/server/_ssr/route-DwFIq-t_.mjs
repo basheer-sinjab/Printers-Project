@@ -1,5 +1,5 @@
 import { o as require_jsx_runtime } from "../_libs/@radix-ui/react-collection+[...].mjs";
-import { _ as FileText, f as Printer, g as LayoutDashboard, l as Settings, r as Truck, v as Droplets } from "../_libs/lucide-react.mjs";
+import { _ as FileText, f as Printer, g as LayoutDashboard, i as Truck, u as Settings, v as Droplets } from "../_libs/lucide-react.mjs";
 import { d as Outlet, h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/route-DwFIq-t_.js
 var import_jsx_runtime = require_jsx_runtime();

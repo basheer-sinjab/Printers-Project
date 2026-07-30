@@ -15,6 +15,11 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
+uploads/printers/*
+!uploads/printers/.gitkeep
+data/printers.db
+data/printers.db-shm
+data/printers.db-wal
 
 # Wrangler / Cloudflare
 .wrangler/

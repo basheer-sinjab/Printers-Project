@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { DateInput } from "@/components/DateInput";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
@@ -203,7 +204,7 @@ export function MaintenanceTab({ printerId }: { printerId: string }) {
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label>التاريخ</Label>
-              <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+              <DateInput value={date} onChange={setDate} />
             </div>
             <div className="space-y-2">
               <Label>نوع الصيانة</Label>

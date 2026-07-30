@@ -1,4 +1,4 @@
-import { i as __toESM } from "../_runtime.mjs";
+import { r as __toESM } from "../_runtime.mjs";
 import { u as require_react } from "./@floating-ui/react-dom+[...].mjs";
 //#region node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
@@ -410,74 +410,6 @@ var Printer = createLucideIcon("printer", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var QrCode = createLucideIcon("qr-code", [
-	["rect", {
-		width: "5",
-		height: "5",
-		x: "3",
-		y: "3",
-		rx: "1",
-		key: "1tu5fj"
-	}],
-	["rect", {
-		width: "5",
-		height: "5",
-		x: "16",
-		y: "3",
-		rx: "1",
-		key: "1v8r4q"
-	}],
-	["rect", {
-		width: "5",
-		height: "5",
-		x: "3",
-		y: "16",
-		rx: "1",
-		key: "1x03jg"
-	}],
-	["path", {
-		d: "M21 16h-3a2 2 0 0 0-2 2v3",
-		key: "177gqh"
-	}],
-	["path", {
-		d: "M21 21v.01",
-		key: "ents32"
-	}],
-	["path", {
-		d: "M12 7v3a2 2 0 0 1-2 2H7",
-		key: "8crl2c"
-	}],
-	["path", {
-		d: "M3 12h.01",
-		key: "nlz23k"
-	}],
-	["path", {
-		d: "M12 3h.01",
-		key: "n36tog"
-	}],
-	["path", {
-		d: "M12 16v.01",
-		key: "133mhm"
-	}],
-	["path", {
-		d: "M16 12h1",
-		key: "1slzba"
-	}],
-	["path", {
-		d: "M21 12v.01",
-		key: "1lwtk9"
-	}],
-	["path", {
-		d: "M12 21v-1",
-		key: "1880an"
-	}]
-]);
-/**
-* @license lucide-react v0.575.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
 var Search = createLucideIcon("search", [["path", {
 	d: "m21 21-4.34-4.34",
 	key: "14j7rj"
@@ -644,6 +576,26 @@ var Truck = createLucideIcon("truck", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var Upload = createLucideIcon("upload", [
+	["path", {
+		d: "M12 3v12",
+		key: "1x0j5s"
+	}],
+	["path", {
+		d: "m17 8-5-5-5 5",
+		key: "7q97r8"
+	}],
+	["path", {
+		d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
+		key: "ih7n3h"
+	}]
+]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var Wrench = createLucideIcon("wrench", [["path", {
 	d: "M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z",
 	key: "1ngwbx"
@@ -662,4 +614,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { Check as C, Archive as E, ChevronDown as S, ArrowLeftRight as T, FileText as _, Trash2 as a, CircleSlash as b, ShieldAlert as c, QrCode as d, Printer as f, LayoutDashboard as g, PackagePlus as h, TriangleAlert as i, Settings as l, Pencil as m, Wrench as n, Star as o, Plus as p, Truck as r, Sparkles as s, X as t, Search as u, Droplets as v, ArrowRight as w, ChevronUp as x, Download as y };
+export { Check as C, Archive as E, ChevronDown as S, ArrowLeftRight as T, FileText as _, TriangleAlert as a, CircleSlash as b, Sparkles as c, Search as d, Printer as f, LayoutDashboard as g, PackagePlus as h, Truck as i, ShieldAlert as l, Pencil as m, Wrench as n, Trash2 as o, Plus as p, Upload as r, Star as s, X as t, Settings as u, Droplets as v, ArrowRight as w, ChevronUp as x, Download as y };

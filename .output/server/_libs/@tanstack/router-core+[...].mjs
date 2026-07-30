@@ -1,13 +1,5 @@
-import { n as __esmMin } from "../../_runtime.mjs";
 import { C as getStylesheetHref, M as invariant, N as decodePath, b as createInlineCssPlaceholderAsset, j as createLRUCache, k as rootRouteId, v as GLOBAL_TSR, x as createInlineCssStyleAsset, y as TSR_SCRIPT_BARRIER_ID } from "./react-router+[...].mjs";
-//#region node_modules/unenv/dist/runtime/polyfill/globalthis.mjs
-var globalthis_default;
-var init_globalthis = __esmMin((() => {
-	globalthis_default = globalThis;
-}));
-//#endregion
 //#region node_modules/seroval/dist/index.js
-init_globalthis();
 var SYM_ASYNC_ITERATOR = Symbol.asyncIterator;
 var SYM_HAS_INSTANCE = Symbol.hasInstance;
 var SYM_IS_CONCAT_SPREADABLE = Symbol.isConcatSpreadable;
@@ -219,7 +211,7 @@ else if (typeof self !== "undefined") Object.defineProperty(self, REFERENCES_KEY
 	writable: false,
 	enumerable: false
 });
-else if (typeof globalthis_default !== "undefined") Object.defineProperty(globalthis_default, REFERENCES_KEY, {
+else if (typeof global !== "undefined") Object.defineProperty(global, REFERENCES_KEY, {
 	value: INV_REFERENCE,
 	configurable: true,
 	writable: false,
@@ -3597,4 +3589,4 @@ function mergeHeaders(...headers) {
 	}, new Headers());
 }
 //#endregion
-export { defaultSerovalPlugins as a, makeSerovalPlugin as c, toCrossJSONStream as d, globalthis_default as f, getOrigin as i, fromJSON as l, attachRouterServerSsrUtils as n, createRawStreamRPCPlugin as o, init_globalthis as p, getNormalizedURL as r, createSerializationAdapter as s, mergeHeaders as t, toCrossJSONAsync as u };
+export { defaultSerovalPlugins as a, makeSerovalPlugin as c, toCrossJSONStream as d, getOrigin as i, fromJSON as l, attachRouterServerSsrUtils as n, createRawStreamRPCPlugin as o, getNormalizedURL as r, createSerializationAdapter as s, mergeHeaders as t, toCrossJSONAsync as u };

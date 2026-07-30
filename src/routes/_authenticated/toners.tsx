@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import { DateInput } from "@/components/DateInput";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -391,7 +392,7 @@ function TonersPage() {
           <div className="space-y-4">
             <div className="space-y-2">
               <Label>التاريخ</Label>
-              <Input type="date" value={stockDate} onChange={(e) => setStockDate(e.target.value)} />
+              <DateInput value={stockDate} onChange={setStockDate} />
             </div>
             <div className="space-y-2">
               <Label>الكمية المضافة</Label>

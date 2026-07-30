@@ -1,5 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
-
 export const PRINTER_STATUS = {
   active: "نشطة",
   maintenance: "تحت الصيانة",
@@ -44,46 +42,46 @@ export type MaintenanceType = keyof typeof MAINTENANCE_TYPES;
 
 export function formatDate(value?: string | null) {
   if (!value) return "—";
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return "—";
-  return new Intl.DateTimeFormat("ar-EG", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    numberingSystem: "latn",
-  }).format(d);
+  const datePart = /^(\d{4})-(\d{2})-(\d{2})/.exec(value);
+  if (datePart) return `${datePart[3]}/${datePart[2]}/${datePart[1]}`;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "—";
+  return `${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}/${date.getFullYear()}`;
 }
 
 export function today() {
-  return new Date().toISOString().slice(0, 10);
+  const date = new Date();
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 }
 
 export function daysUntil(date?: string | null) {
   if (!date) return null;
-  const diff = new Date(date).getTime() - new Date().setHours(0, 0, 0, 0);
+  const datePart = /^(\d{4})-(\d{2})-(\d{2})/.exec(date);
+  const target = datePart
+    ? new Date(Number(datePart[1]), Number(datePart[2]) - 1, Number(datePart[3]))
+    : new Date(date);
+  if (Number.isNaN(target.getTime())) return null;
+  const diff = target.getTime() - new Date().setHours(0, 0, 0, 0);
   return Math.round(diff / 86400000);
 }
 
-/** Signed URL cache for the private printer-images bucket. */
-const urlCache = new Map<string, string>();
 export async function resolveImage(path?: string | null) {
-  if (!path) return null;
-  if (path.startsWith("http")) return path;
-  if (urlCache.has(path)) return urlCache.get(path)!;
-  const { data } = await supabase.storage.from("printer-images").createSignedUrl(path, 60 * 60 * 8);
-  if (data?.signedUrl) {
-    urlCache.set(path, data.signedUrl);
-    return data.signedUrl;
-  }
-  return null;
+  return path ?? null;
 }
 
 export async function uploadPrinterImage(file: File) {
-  const ext = file.name.split(".").pop() || "jpg";
-  const path = `${crypto.randomUUID()}.${ext}`;
-  const { error } = await supabase.storage.from("printer-images").upload(path, file);
-  if (error) throw error;
-  return path;
+  const formData = new FormData();
+  formData.append("image", file);
+  const response = await fetch("/api/printer-images", { method: "POST", body: formData });
+  const body = await response.json();
+  if (!response.ok) throw new Error(body.message ?? "تعذر رفع الصورة");
+  return body.path as string;
+}
+
+export async function deletePrinterImage(path?: string | null) {
+  if (!path?.startsWith("/uploads/printers/")) return;
+  const response = await fetch(`/api/printer-images?path=${encodeURIComponent(path)}`, { method: "DELETE" });
+  if (!response.ok) throw new Error("تعذر حذف الصورة القديمة");
 }
 
 export function must<T>(res: { data: T; error: { message: string } | null }): T {

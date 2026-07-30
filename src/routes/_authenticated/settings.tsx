@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -7,8 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plus, Pencil, Trash2, Check, X } from "lucide-react";
+import { Plus, Pencil, Trash2, Check, X, Download, Upload } from "lucide-react";
 import { toast } from "sonner";
+import { createLocalBackup, restoreLocalBackup } from "@/lib/local-backup";
 
 type LookupTable = "branches" | "departments" | "responsible_persons" | "parts";
 
@@ -32,13 +33,14 @@ function SettingsPage() {
         <p className="text-sm text-muted-foreground">القوائم الأساسية وتنبيهات النظام</p>
       </header>
 
-      <Tabs defaultValue="branches">
-        <TabsList>
-          <TabsTrigger value="branches">الفروع</TabsTrigger>
-          <TabsTrigger value="departments">الأقسام</TabsTrigger>
-          <TabsTrigger value="persons">الأشخاص المسؤولون</TabsTrigger>
-          <TabsTrigger value="parts">قطع الغيار</TabsTrigger>
-          <TabsTrigger value="alerts">التنبيهات</TabsTrigger>
+      <Tabs defaultValue="branches" dir="rtl" className="w-full">
+        <TabsList className="grid h-auto w-full grid-cols-2 gap-1 p-1 sm:grid-cols-3 xl:grid-cols-6">
+          <TabsTrigger className="h-auto min-h-9 whitespace-normal text-center leading-5" value="branches">الفروع</TabsTrigger>
+          <TabsTrigger className="h-auto min-h-9 whitespace-normal text-center leading-5" value="departments">الأقسام</TabsTrigger>
+          <TabsTrigger className="h-auto min-h-9 whitespace-normal text-center leading-5" value="persons">الأشخاص المسؤولون</TabsTrigger>
+          <TabsTrigger className="h-auto min-h-9 whitespace-normal text-center leading-5" value="parts">قطع الغيار</TabsTrigger>
+          <TabsTrigger className="h-auto min-h-9 whitespace-normal text-center leading-5" value="alerts">التنبيهات</TabsTrigger>
+          <TabsTrigger className="h-auto min-h-9 whitespace-normal text-center leading-5" value="backup">النسخ الاحتياطي</TabsTrigger>
         </TabsList>
 
         <TabsContent value="branches" className="mt-4">
@@ -56,7 +58,75 @@ function SettingsPage() {
         <TabsContent value="alerts" className="mt-4">
           <AlertSettings />
         </TabsContent>
+        <TabsContent value="backup" className="mt-4">
+          <BackupSettings />
+        </TabsContent>
       </Tabs>
+    </div>
+  );
+}
+
+function BackupSettings() {
+  const queryClient = useQueryClient();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [isWorking, setIsWorking] = useState(false);
+
+  const downloadBackup = async () => {
+    setIsWorking(true);
+    try {
+      const backup = await createLocalBackup();
+      const url = URL.createObjectURL(new Blob([backup], { type: "application/json" }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `printers-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      link.click();
+      URL.revokeObjectURL(url);
+      toast.success("تم إنشاء النسخة الاحتياطية مع الصور");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "تعذر إنشاء النسخة الاحتياطية");
+    } finally {
+      setIsWorking(false);
+    }
+  };
+
+  const restoreBackup = async (file?: File) => {
+    if (!file) return;
+    setIsWorking(true);
+    try {
+      await restoreLocalBackup(file);
+      await queryClient.invalidateQueries();
+      toast.success("تمت استعادة البيانات والصور");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "تعذرت استعادة النسخة الاحتياطية");
+    } finally {
+      setIsWorking(false);
+      if (inputRef.current) inputRef.current.value = "";
+    }
+  };
+
+  return (
+    <div className="surface-panel max-w-xl space-y-5 p-6">
+      <div>
+        <h2 className="font-semibold">النسخ الاحتياطي والاستعادة</h2>
+        <p className="mt-1 text-sm text-muted-foreground">يشمل جميع البيانات وصور الطابعات المحفوظة محليًا.</p>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <Button className="gap-2" onClick={downloadBackup} disabled={isWorking}>
+          <Download className="size-4" />
+          تنزيل نسخة احتياطية
+        </Button>
+        <Button variant="outline" className="gap-2" onClick={() => inputRef.current?.click()} disabled={isWorking}>
+          <Upload className="size-4" />
+          استعادة نسخة
+        </Button>
+        <Input
+          ref={inputRef}
+          className="hidden"
+          type="file"
+          accept="application/json,.json"
+          onChange={(event) => restoreBackup(event.target.files?.[0])}
+        />
+      </div>
     </div>
   );
 }
