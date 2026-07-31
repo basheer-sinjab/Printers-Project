@@ -1,0 +1,18 @@
+services:
+  printers:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: printers-project
+    ports:
+      - "8080:8080"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8080
+      NODE_ENV: production
+    volumes:
+      # Persists the SQLite database on the host machine.
+      - ./data:/app/data
+      # Persists uploaded printer images on the host machine.
+      - ./uploads:/app/uploads
+    restart: unless-stopped

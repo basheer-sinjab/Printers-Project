@@ -100,7 +100,7 @@ function StatCard({
   );
 }
 
-function DashboardHero({ total, active, alerts }: { total: number; active: number; alerts: number }) {
+function DashboardHero() {
   return (
     <section className="relative overflow-hidden rounded-3xl bg-sidebar px-6 py-7 text-sidebar-foreground shadow-float sm:px-8 sm:py-8">
       <div className="absolute -left-14 -top-16 size-52 rounded-full bg-sidebar-primary/20 blur-3xl" />
@@ -114,10 +114,17 @@ function DashboardHero({ total, active, alerts }: { total: number; active: numbe
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">كل ما تحتاجه لإدارة الطابعات، في مكان واحد.</h2>
           <p className="mt-2 max-w-2xl text-sm text-sidebar-foreground/65">تابع الأصول والمخزون والصيانة بوضوح، واتخذ الإجراء المناسب قبل أن تتعطل الأعمال.</p>
         </div>
-        <div className="flex gap-7 rounded-2xl border border-white/10 bg-black/10 px-5 py-4">
-          <div><p className="text-2xl font-bold text-white">{total}</p><p className="mt-1 text-xs text-sidebar-foreground/60">إجمالي الأصول</p></div>
-          <div className="border-r border-white/10 pr-7"><p className="text-2xl font-bold text-sidebar-primary">{active}</p><p className="mt-1 text-xs text-sidebar-foreground/60">تعمل الآن</p></div>
-          <div className="border-r border-white/10 pr-7"><p className="text-2xl font-bold text-warning">{alerts}</p><p className="mt-1 text-xs text-sidebar-foreground/60">تحتاج انتباهًا</p></div>
+        <div className="printer-animation" role="img" aria-label="طابعة تطبع ورقة">
+          <div className="printer-animation__paper">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="printer-animation__body">
+            <span className="printer-animation__indicator" />
+            <div className="printer-animation__slot" />
+          </div>
+          <div className="printer-animation__output" />
         </div>
       </div>
     </section>
@@ -135,7 +142,7 @@ function Dashboard() {
   const threshold = settings?.low_stock_threshold ?? 2;
   const warrantyDays = settings?.warranty_alert_days ?? 30;
 
-  const count = (s: PrinterStatus) => printers.filter((p) => p.status === s).length;
+  const count = (status: PrinterStatus) => printers.filter((printer) => printer.status === status).length;
   const lowStock = toners.filter((t) => t.quantity > 0 && t.quantity <= Math.max(t.min_quantity, threshold));
   const outOfStock = toners.filter((t) => t.quantity <= 0);
   const favorites = printers.filter((p) => p.is_favorite);
@@ -172,7 +179,7 @@ function Dashboard() {
         <p className="text-sm text-muted-foreground">نظرة عامة على أصول الطباعة في الشركة</p>
       </header>
 
-      <DashboardHero total={printers.length} active={count("active")} alerts={lowStock.length + outOfStock.length + expired.length + expiring.length} />
+      <DashboardHero />
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
         <StatCard label="إجمالي الطابعات" value={printers.length} icon={Printer} />
